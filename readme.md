@@ -1,8 +1,8 @@
 # Gazebo数据采集方法
-## 启动gezebo 环境
+## 1.启动gezebo 环境
 roslaunch SimDataset run_gazebo.launch 
 
-## 键盘控制移动
+## 2.键盘控制移动
  rosrun  SimDataset  teleop_turtle_key_my
 
 按键	对应动作	物理意义
@@ -15,25 +15,26 @@ E / Q	升高 / 降低	改变高度 (Z 轴)
 C	撤销	删除上一个记录点并返回
 回车 (Enter)	演示轨迹	自动回放保存的路径（cam_traj.txt）
 
-## 录制rosbag 
+## 3.录制rosbag 
 rosbag record /rgb/image_raw /depth_to_rgb/image_raw   -O image.bag 
 
 
-## 将rostopic转为rgb/depth图片 
+## 4.将rostopic转为rgb/depth图片 
 roslaunch SimDataset rostopic2picture.launch # 注意在luanch文件中修改根目录, 当前scale为5000
 
-
+## 5.关联：
+python2 associate.py rgb.txt depth.txt  > associations.txt
 
 
 # kinect dk数据采集方法
-## 启动kinect dk
+## 1.启动kinect dk
 roslaunch azure_kinect_ros_driver driver.launch    # Mode: NFOV_2X2BINNED, 720P; Topic: /rgb/image_raw /depth_to_rgb/image_raw
 
-## 录制rosbag  
+## 2.录制rosbag  
 rosbag record  /rgb/image_raw /depth_to_rgb/image_raw
 
-## 提取depth和rgb:
+## 3.提取depth和rgb:
 roslaunch SimDataset rostopic2picture.launch # 注意在luanch文件中修改根目录, 当前scale为5000
 
-## 关联：
+## 4.关联：
 python2 associate.py rgb.txt depth.txt  > associations.txt
