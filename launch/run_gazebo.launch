@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  
+    <arg name="world_name" value="$(find SimDataset)/world/SimDataset_6.world"/>
+    <!-- <arg name="world_name" value="$(find SimDataset)/world/room_with_objects_on_ground.world"/> -->
+    <!-- <arg name="world_name" value="$(find sim_env)/world/nine_desk_drift.world"/> -->
+    <!-- <arg name="world_name" value="$(find sim_env)/world/kinect.world"/> -->
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/> 
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find SimDataset)/world/tele_control_robot.rviz">
+  </node>
+
+  <!-- <node pkg="sim_env" type="teleop_turtle_key_my" name="hello">
+  </node> -->
+
+
+
+</launch>
+

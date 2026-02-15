@@ -1,0 +1,14 @@
+
+
+<launch>
+
+
+ <!-- <node pkg="SimDataset" type="rostopic2tum" name="rostopic2tum" output="screen" 
+    args="/home/robotlab/dataset/Ruihan/">
+ </node> -->
+
+ <node pkg="SimDataset" type="rostopic2tum" name="rostopic2tum" output="screen" 
+    args="/home/robotlab/dataset/Ruihan/circle_desk/">
+ </node>
+
+</launch>

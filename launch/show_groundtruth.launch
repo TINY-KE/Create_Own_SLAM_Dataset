@@ -1,0 +1,17 @@
+
+
+<launch>
+
+ <node pkg="rviz" type="rviz" name="rviz" args="-d $(find sim_env)/world/show_groundtruth.rviz">
+ 
+ </node>
+
+ <!-- <node pkg="sim_env" type="extract_gazebo_groudth" name="extract_gazebo_groudth_name" output="screen" 
+    args="/home/lj/Documents/codes/galbot_ws/src/sim_env/world/nine_desk_drift.world"> -->
+
+ <node pkg="sim_env" type="extract_gazebo_groudth" name="extract_gazebo_groudth_name" output="screen" 
+    args="/home/lj/Documents/codes/galbot_ws/src/sim_env/world/room_with_objects_on_ground.world">
+
+ </node>
+
+</launch>
